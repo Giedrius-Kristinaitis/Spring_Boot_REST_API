@@ -14,7 +14,7 @@ public class Car {
     private Long id;
 
     // model name
-    @NotBlank(message = "Model cannot be blank string")
+    @NotBlank(message = "Model name cannot be blank string")
     private String model;
 
     // production year
@@ -105,6 +105,10 @@ public class Car {
      * @param price new price
      */
     public void setPrice(Double price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Car price cannot be nagative");
+        }
+
         this.price = price;
     }
 }
