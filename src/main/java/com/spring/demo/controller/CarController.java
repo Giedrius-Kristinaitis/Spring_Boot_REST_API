@@ -66,8 +66,13 @@ public class CarController {
      */
     @PostMapping
     public ResponseEntity<Car> addCar(@Valid @RequestBody Car car) {
+        Car insertedCar = carService.addCar(car);
 
-        return null;
+        if (insertedCar == null) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
+        return new ResponseEntity<>(insertedCar, HttpStatus.OK);
     }
 
     /**
@@ -78,8 +83,13 @@ public class CarController {
      */
     @PutMapping("/{id}")
     public ResponseEntity<Car> updateCar(@PathVariable Long id, @Valid @RequestBody Car car) {
+        Car updatedCar = carService.updateCar(id, car);
 
-        return null;
+        if (updatedCar == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(updatedCar, HttpStatus.OK);
     }
 
     /**
@@ -89,7 +99,12 @@ public class CarController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Car> deleteCar(@PathVariable Long id) {
+        Car deletedCar = carService.deleteCar(id);
 
-        return null;
+        if (deletedCar == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(deletedCar, HttpStatus.OK);
     }
 }
