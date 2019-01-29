@@ -2,7 +2,6 @@ package com.spring.demo.controller;
 
 import com.spring.demo.model.Car;
 import com.spring.demo.service.CarService;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

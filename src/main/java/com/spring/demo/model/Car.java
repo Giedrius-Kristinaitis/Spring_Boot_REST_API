@@ -1,5 +1,6 @@
 package com.spring.demo.model;
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
@@ -8,9 +9,13 @@ import javax.validation.constraints.PositiveOrZero;
  * Car model class
  */
 @SuppressWarnings("unused")
+@Entity
+@Table(name = "cars")
 public class Car {
 
     // id in the database
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     // model name
