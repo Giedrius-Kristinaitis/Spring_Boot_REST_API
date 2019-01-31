@@ -4,6 +4,7 @@ import com.spring.demo.database.CarRepository;
 import com.spring.demo.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +13,7 @@ import java.util.Optional;
  * Performs CRUD operations with cars
  */
 @Service
+@Transactional
 public class CarService {
 
     // crud car repo
